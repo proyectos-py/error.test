@@ -1,0 +1,13 @@
+Package: error.test
+Title: Two-sample test for the error distribution in nonparametric regression based on the characteristic function.
+Version: 1.0.0
+Authors: Oscar González Frutos
+Maintainer: <gonzalezfrutos@gmail.com>
+Description: Performs a two-sample test, based on the characteristic function, for the equality of the error distributions in a simple nonparametric regression model
+License: GLP-2
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.2.2
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3

@@ -26,7 +26,7 @@
 #'error.test(x1, y1, x2, y2, methods = "WB")
 
 error.test = function(x1, y1, x2, y2, methods = c("SB", "WB")) {
-c=1.5; a=0.45 ; s=1234567 ; B=1000; r=0.25 ; M=1 #valores cambiables
+c=1.5; a=0.45 ; s=1234567 ; B=1000; r=0.15 ; M=1 #valores cambiables
 nw.mean=function(x,xdata,ydata,h)
 {n=length(xdata)
 h =c*n^(-a)  #parámetro de ventana

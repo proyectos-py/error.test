@@ -15,12 +15,20 @@ error.test(x1, y1, x2, y2, methods = c("SB", "WB"))
 
 \item{y2}{a non-empty numerical dependent vector of size n2}
 }
+\methods{
+“SB” p-value is obtained by a smoth bootstrap approximation \\
+“WB” p-value is obtained by a weighted bootstrap approximation (recommended for large sample sizes)
+}
 \value{
-Approximate the p-value
+\item{n1}{length of vectors x1 and y1}
+\item{n2}{length of vectors x2 and y2}
+\item{p-value}{the p-value for the test}
+
 }
 \description{
-Performs a two-sample test, based on the characteristic function, for the equality of the error
-distributions in a simple nonparametric regression model.
+Performs a two-sample test, based on the characteristic function, for the equality of the error distributions in a simple nonparametric regression model.
+}
+\references{The package follows the theoretical results by Rivas-Martínez GI, Jiménez-Gamero MD, Moreno-Rebollo JL. (2017). A two-sample test for the error distribution in nonparametric regression based on the characteristic function. Statist Papers. Available from: http://dx.doi.org/10.1007/s00362-017-0878-8.
 }
 \examples{
 error.test

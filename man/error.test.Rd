@@ -15,7 +15,7 @@ error.test(x1, y1, x2, y2, methods = c("SB", "WB"))
 
 \item{y2}{a non-empty numerical dependent vector of size n2}
 }
-\methods{
+\method{
 \item{SB p-value}{is obtained by a smoth bootstrap approximation}
 \item{WB p-value}{is obtained by a weighted bootstrap approximation (recommended for large sample sizes)}
 }

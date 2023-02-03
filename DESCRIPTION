@@ -1,7 +1,7 @@
 Package: error.test
 Title: Two-sample test for the error distribution in nonparametric regression based on the characteristic function.
 Version: 1.0.0
-Authors: Ida Luz Romero Daspett
+Authors: Ida Luz Romero Daspett, Gustavo Ignacio Rivas Martinez y Oscar González Frutos
 Maintainer: <gonzalezfrutos@gmail.com>
 Description: Performs a two-sample test, based on the characteristic function, for the equality of the error distributions in a simple nonparametric regression model
 License: GLP-2

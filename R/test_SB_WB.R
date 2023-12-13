@@ -59,7 +59,8 @@ error.test = function(x1, y1, x2, y2, methods = c("SB", "WB")) {
         salida = sqrt(numerador/denominador)
         return(salida)
     }
-    # ======================================================================================== Cálculo de residuos residuos en el vector x
+    # ======================================================================================== Cálculo de residuos
+    # residuos en el vector x
     res = function(xdata, ydata, h) {
         n = length(xdata)
         salida = rep(0, n)
@@ -125,14 +126,17 @@ error.test = function(x1, y1, x2, y2, methods = c("SB", "WB")) {
         aux2 = matrix(ee2, n2, n2)
         aux3 = matrix(ee2, n2, n1)
         aux4 = matrix(ee1, n1, n2)
-        C = (1/N^2) * (sum(aux1 * phi2(a11, r)) + sum(aux3 * phi2(a21, r)) + sum(aux4 * phi2(a12, r)) + sum(aux2 * phi2(a22, r)))
-        D = (1/N^2) * (sum(aux1 * phi1(a11, r)) + sum(t(aux4) * phi1(a21, r)) + sum(t(aux3) * phi1(a12, r)) + sum(aux2 * phi1(a22, r)))
+        C = (1/N^2) * (sum(aux1 * phi2(a11, r)) + sum(aux3 * phi2(a21, r)) + sum(aux4 * phi2(a12, r)) + sum(aux2 * phi2(a22,
+            r)))
+        D = (1/N^2) * (sum(aux1 * phi1(a11, r)) + sum(t(aux4) * phi1(a21, r)) + sum(t(aux3) * phi1(a12, r)) + sum(aux2 * phi1(a22,
+            r)))
         aux11 = outer(ee1, ee1)
         aux22 = outer(ee2, ee2)
         aux12 = outer(ee1, ee2)
         E = (1/N^2) * (sum(aux11 * phi2(a11, r)) + sum(aux22 * phi2(a22, r)) + 2 * sum(aux12 * phi2(a12, r)))
         F = (1/N^2) * (sum(phi(a11, r)) + sum(phi(a22, r)) + 2 * sum(phi(a12, r)))
-        # ======================================================================================== inicio del c?lculo de la matriz M11(jl)
+        # ======================================================================================== inicio del c?lculo de
+        # la matriz M11(jl)
         T1 = phi(a11, r)
         v21 = colSums(phi1(a11, r)) + colSums(phi1(a21, r))
         v22 = -(1/N) * outer(ee1, v21)
@@ -153,7 +157,8 @@ error.test = function(x1, y1, x2, y2, methods = c("SB", "WB")) {
         T8 = -v81 * E
         T9 = matrix(F, n1, n1)
         M11 = T1 + T2 + T3 + T4 + T5 + T6 + T7 + T8 + T9
-        # ======================================================================================== inicio del cálculo de la matriz M22(jl)
+        # ======================================================================================== inicio del cálculo de
+        # la matriz M22(jl)
         T1 = phi(a22, r)
         v21 = colSums(phi1(a12, r)) + colSums(phi1(a22, r))
         v22 = -(1/N) * outer(ee2, v21)
@@ -174,7 +179,8 @@ error.test = function(x1, y1, x2, y2, methods = c("SB", "WB")) {
         T8 = -v81 * E
         T9 = matrix(F, n2, n2)
         M22 = T1 + T2 + T3 + T4 + T5 + T6 + T7 + T8 + T9
-        # ======================================================================================== inicio del cálculo de la matriz M12(jl)
+        # ======================================================================================== inicio del cálculo de
+        # la matriz M12(jl)
         T1 = phi(a12, r)
         v21 = colSums(phi1(a12, r)) + colSums(phi1(a22, r))
         v22 = -(1/N) * outer(ee1, v21)
@@ -211,14 +217,14 @@ error.test = function(x1, y1, x2, y2, methods = c("SB", "WB")) {
             multcent1 = mult1 - mean(mult1)
             mult2 = stats::rnorm(n2)
             multcent2 = mult2 - mean(mult2)
-            auxWB2[b] = as.numeric(multcent1 %*% M11 %*% multcent1)/(n1^2) + as.numeric(multcent2 %*% M22 %*% multcent2)/(n2^2) - 2 * as.numeric(multcent1 %*%
-                M12 %*% multcent2)/(n1 * n2)
+            auxWB2[b] = as.numeric(multcent1 %*% M11 %*% multcent1)/(n1^2) + as.numeric(multcent2 %*% M22 %*% multcent2)/(n2^2) -
+                2 * as.numeric(multcent1 %*% M12 %*% multcent2)/(n1 * n2)
         }
         vale2 = rep(1, B)[auxWB2 > Tobs]
         pvalorWB2 = (1/B) * sum(vale2)
         z1 = pvalorWB2
-        # ======================================================================================== cat('\nA two-sample test for the error
-        # distribution in nonparametric regression based on WB approximation.')
+        # ======================================================================================== cat('\nA two-sample
+        # test for the error distribution in nonparametric regression based on WB approximation.')
         # cat('\n--------------------------------------------------------------------------------') cat('\nHypothesis')
         cat("\nHo: The error distributions funcions are equal in both population")
         cat("\nP-value based on Weighted Bootstrap aproximation")
@@ -291,9 +297,10 @@ error.test = function(x1, y1, x2, y2, methods = c("SB", "WB")) {
         }  #fin M
 
         z1 = pvalorB
-        # ======================================================================================== cat('\nA weighted bootstrap approximation
-        # for comparing the error distributions based on SB approximation.')
-        # cat('\n----------------------------------------------------------------------------------------\n') cat('\nHypothesis')
+        # ======================================================================================== cat('\nA weighted
+        # bootstrap approximation for comparing the error distributions based on SB approximation.')
+        # cat('\n----------------------------------------------------------------------------------------\n')
+        # cat('\nHypothesis')
         cat("\nHo: The error distributions funcions are equal in both population")
         cat("\nP-value based on Smooth Bootstrap aproximation")
         cat("\n--------------------------------------------------------------------\n")

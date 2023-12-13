@@ -28,7 +28,6 @@ in nonparametric regression. It supports two methods: Weighted Bootstrap (WB)
 and Smooth Bootstrap (SB).
 }
 \examples{
-error.test
 n1 = 39
 n2 = 49
 x1 = runif(n1)

@@ -6,7 +6,9 @@ Performs a two-sample test, based on the characteristic function, for the equali
 
 You can install the package using the following commands:
 
-From GITHUB:    devtools::install_github("proyectos-py/error.test")
+From GITHUB:    
+
+devtools::install_github("proyectos-py/error.test")
 
 ##  Example usage
 

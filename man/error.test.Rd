@@ -2,49 +2,42 @@
 % Please edit documentation in R/test_SB_WB.R
 \name{error.test}
 \alias{error.test}
-\title{A two-sample test for the error distribution in nonparametric regression based on the characteristic function}
+\title{Nonparametric Two-Sample Test for Error Distributions}
 \usage{
 error.test(x1, y1, x2, y2, methods = c("SB", "WB"))
 }
 \arguments{
-\item{x1}{a non-empty numeric covariate vector of size n1 for y1}
+\item{x1}{Numeric vector representing the predictor values for the first sample.}
 
-\item{y1}{a non-empty numerical dependent vector of size n1}
+\item{y1}{Numeric vector representing the response values for the first sample.}
 
-\item{x2}{a non-empty numeric covariate vector of size n2 for y2}
+\item{x2}{Numeric vector representing the predictor values for the second sample.}
 
-\item{y2}{a non-empty numerical dependent vector of size n2}
-}
-\methods{
-\item{SB p-value}{is obtained by a smoth bootstrap approximation}
-\item{WB p-value}{is obtained by a weighted bootstrap approximation (recommended for large sample sizes)}
+\item{y2}{Numeric vector representing the response values for the second sample.}
+
+\item{methods}{Character vector specifying the method(s) to use, either 'SB', 'WB',
+or both. Default is c('SB', 'WB').}
 }
 \value{
-\item{n1}{length of vectors x1 and y1}
-\item{n2}{length of vectors x2 and y2}
-\item{p-value}{the p-value for the test}
+A list containing information about the test including sample sizes (n1, n2)
+and the p-value.
 }
 \description{
-Performs a two-sample test, based on the characteristic function, for the equality of the error distributions in a simple nonparametric regression model.
-}
-\references{The package follows the theoretical results by Rivas-Martínez GI, Jiménez-Gamero MD, Moreno-Rebollo JL. (2017). A two-sample test for the error distribution in nonparametric regression based on the characteristic function. Statist Papers. Available from: http://dx.doi.org/10.1007/s00362-017-0878-8.
+This function performs a two-sample test for comparing error distributions
+in nonparametric regression. It supports two methods: Weighted Bootstrap (WB)
+and Smooth Bootstrap (SB).
 }
 \examples{
 error.test
-x1=c(1.001,1.231,1.123,0.696,0.808,1.071,1.009,1.142,0.767,1.006,0.893,1.081,0.868,
-0.762,1.144,1.045,0.637,0.733,0.715,0.872,0.765,0.878,0.811,0.729,0.911,0.808,1.168,
-0.749,0.892,1.002,0.696,1.199,1.03,0.899,1.227,1.18,0.795,0.629,0.608)
-y1=c(3.12,0.638,1.17,0.926,3.148,1.836,2.845,1.013,1.869,2.836,3.567,1.719,3.423,
-1.634,1.021,2.157,0.571,2.219,1.419,3.519,1.732,3.206,2.471,1.397,3.536,2.202,0.756,
-1.62,3.656,2.964,1.139,0.727,2.581,3.488,0.754,0.797,2.064,0.561,0.563)
-x2=c(0.907,0.761,1.108,1.016,1.189,1.042,1.215,0.93,1.152,1.138,0.601,0.686,1.072,
-1.074,0.934,1.229,1.175,0.568,0.977,1.152,0.693,1.232,1.036,1.125,0.797,1.115,1.07,1.219,
-0.676,1.045,0.968,0.846,0.684,0.812,1.23,0.804,0.813,1.002,0.602,0.694,0.816,1.037,1.181,
-0.99,1.201,0.584,0.562,0.535,0.655)
-y2=c(3.741,2.295,1.498,2.881,0.76,2.358,0.606,3.669,1,0.981,1.192,1.59,1.806,1.962,4.028,
-0.414,0.812,0.374,3.623,0.866,1.369,0.542,2.739,1.2,3.361,1.39,1.947,0.962,1.777,2.571,3.952,
-3.931,1.587,3.76,0.672,3.677,3.517,3.29,0.923,1.527,3.388,2.085,0.966,3.732,0.586,0.678,0.37,
-0.53,1.9)
-error.test(x1, y1, x2, y2, methods = "SB")
-error.test(x1, y1, x2, y2, methods = "WB")
+n1 = 39
+n2 = 49
+x1 = runif(n1)
+y1 = runif(n1)
+x2 = runif(n2)
+y2 = runif(n2)
+error.test(x1, y1, x2, y2, methods = 'SB')
+error.test(x1, y1, x2, y2, methods = 'WB')
+}
+\references{
+Kernel Density Estimation and Its Applications, G. S. Watson, 1983.
 }

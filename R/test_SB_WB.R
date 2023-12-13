@@ -305,4 +305,9 @@ error.test = function(x1, y1, x2, y2, methods = c("SB", "WB")) {
 }
 
 
-
+#' @title kernel
+#' @param u es un vector con los xs
+#' @export kernel
+kernel = function(u) {
+    0.75 * (1 - u^2) * (u <= 1) * (u >= -1)
+}  #Epanechnikov

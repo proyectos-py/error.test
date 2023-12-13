@@ -19,7 +19,7 @@
 #' Kernel Density Estimation and Its Applications, G. S. Watson, 1983.
 #'
 #' @export
-#' @examples error.test
+#' @examples
 #' n1 = 39
 #' n2 = 49
 #' x1 = runif(n1)
@@ -59,8 +59,7 @@ error.test = function(x1, y1, x2, y2, methods = c("SB", "WB")) {
         salida = sqrt(numerador/denominador)
         return(salida)
     }
-    # ======================================================================================== Cálculo de residuos residuos en el vector
-    # x
+    # ======================================================================================== Cálculo de residuos residuos en el vector x
     res = function(xdata, ydata, h) {
         n = length(xdata)
         salida = rep(0, n)
@@ -133,8 +132,7 @@ error.test = function(x1, y1, x2, y2, methods = c("SB", "WB")) {
         aux12 = outer(ee1, ee2)
         E = (1/N^2) * (sum(aux11 * phi2(a11, r)) + sum(aux22 * phi2(a22, r)) + 2 * sum(aux12 * phi2(a12, r)))
         F = (1/N^2) * (sum(phi(a11, r)) + sum(phi(a22, r)) + 2 * sum(phi(a12, r)))
-        # ======================================================================================== inicio del c?lculo de la matriz
-        # M11(jl)
+        # ======================================================================================== inicio del c?lculo de la matriz M11(jl)
         T1 = phi(a11, r)
         v21 = colSums(phi1(a11, r)) + colSums(phi1(a21, r))
         v22 = -(1/N) * outer(ee1, v21)
@@ -155,8 +153,7 @@ error.test = function(x1, y1, x2, y2, methods = c("SB", "WB")) {
         T8 = -v81 * E
         T9 = matrix(F, n1, n1)
         M11 = T1 + T2 + T3 + T4 + T5 + T6 + T7 + T8 + T9
-        # ======================================================================================== inicio del cálculo de la matriz
-        # M22(jl)
+        # ======================================================================================== inicio del cálculo de la matriz M22(jl)
         T1 = phi(a22, r)
         v21 = colSums(phi1(a12, r)) + colSums(phi1(a22, r))
         v22 = -(1/N) * outer(ee2, v21)
@@ -177,8 +174,7 @@ error.test = function(x1, y1, x2, y2, methods = c("SB", "WB")) {
         T8 = -v81 * E
         T9 = matrix(F, n2, n2)
         M22 = T1 + T2 + T3 + T4 + T5 + T6 + T7 + T8 + T9
-        # ======================================================================================== inicio del cálculo de la matriz
-        # M12(jl)
+        # ======================================================================================== inicio del cálculo de la matriz M12(jl)
         T1 = phi(a12, r)
         v21 = colSums(phi1(a12, r)) + colSums(phi1(a22, r))
         v22 = -(1/N) * outer(ee1, v21)
@@ -295,8 +291,8 @@ error.test = function(x1, y1, x2, y2, methods = c("SB", "WB")) {
         }  #fin M
 
         z1 = pvalorB
-        # ======================================================================================== cat('\nA weighted bootstrap
-        # approximation for comparing the error distributions based on SB approximation.')
+        # ======================================================================================== cat('\nA weighted bootstrap approximation
+        # for comparing the error distributions based on SB approximation.')
         # cat('\n----------------------------------------------------------------------------------------\n') cat('\nHypothesis')
         cat("\nHo: The error distributions funcions are equal in both population")
         cat("\nP-value based on Smooth Bootstrap aproximation")

@@ -25,6 +25,7 @@ x2 = runif(n2)
 y2 = runif(n2)
 
 library(error.test)
+
 error.test(x1, y1, x2, y2, methods = "SB")
 
 error.test(x1, y1, x2, y2, methods = "WB")
